@@ -40,14 +40,14 @@ df = pd.read_excel("Customer Call List.xlsx")
 df = df.drop_duplicates()
 ```
 ### Output Snapshots
-[Removing_Duplicate_Rows](screenshots/Removing_Duplicate_Rows.png)
+![Removing_Duplicate_Rows](./screenshots/Removing_Duplicate_Rows.png)
 
 3. **Dropping Unnecessary Columns:** Removed columns that did not add analytical value to the customer contact process (e.g., Not_Useful_Column).
 ```Python
 df = df.drop(columns="Not_Useful_Column")
 ```
 ### Output Snapshots
-[Dropping_Unnecessary_Columns](screenshots/Dropping_Unnecessary_Columns.png)
+![Dropping_Unnecessary_Columns](./screenshots/Dropping_Unnecessary_Columns.png)
 
 4. **Cleaning String Columns:** Cleaned messy characters, symbols (..., /, _), and extra whitespaces from columns like Last_Name using .str.strip().
 -Standardized categorical values in Paying Customer and Do_Not_Contact columns (converting "Yes/No" variations uniformly to "Y/N").
@@ -58,14 +58,14 @@ df = df.drop(columns="Not_Useful_Column")
 df["Phone_Number"] = df["Phone_Number"].str.replace('[^a-zA-Z0-9]','',regex=True)
 ```
 ### Output Snapshots
-[Standardize_Phone_Number](screenshots/Standardize_Phone_Number.png)
+![Standardize_Phone_Number](./screenshots/Standardize_Phone_Number.png)
 
 6. **Splitting Address Information:**  Split the combined Address column into distinct fields (Street_Address, State, and Zip_Code) using .str.split().
 ```Python
 df[["Street_Address","State","Zip_Code"]] = df["Address"].str.split(',', n=2, expand=True)
 ```
 ### Output Snapshots
-[Splitting_Address_Information](screenshots/Splitting_Address_Information.png)
+![Splitting_Address_Information](./screenshots/Splitting_Address_Information.png)
 
 7. **Handling Missing Values & Filtering Contact Rules:** Replaced null values with empty strings or handled missing data appropriately.
 -Filtered out customers who opted out of contact (Do_Not_Contact == "Y") or had missing phone numbers.
@@ -75,14 +75,14 @@ for x in df.index:
         df.drop(x, inplace=True)
 ```
 ### Output Snapshots
-[Filtering_Contact_Rules](screenshots/Filtering_Contact_Rules.png)
+![Filtering_Contact_Rules](./screenshots/Filtering_Contact_Rules.png)
 
 8. **Resetting DataFrame Index:** Cleaned up the final index sequence to ensure sequential ordering.
 ```Python
 df = df.reset_index(drop=True)
 ```
 ### Output Snapshots
-[Resetting_DataFrame_Index](screenshots/Resetting_DataFrame_Index.pn)
+![Resetting_DataFrame_Index](./screenshots/Resetting_DataFrame_Index.pn)
 
 ---
 
