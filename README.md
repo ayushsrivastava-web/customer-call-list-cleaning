@@ -4,7 +4,7 @@
 This repository contains a comprehensive data cleaning project using **Python** and the **Pandas** library. The raw dataset (`Customer Call List.xlsx`) contained messy text formatting, duplicate rows, irregular phone numbers, unformatted addresses, and unnecessary columns. This project systematically cleans and standardizes the dataset into a ready-to-use format for business communication.
 
 ### Raw Datasets
-[Raw_Dataset](data/Customer Call List.xlsx)
+[Raw_Dataset](https://github.com/AlexTheAnalyst/PandasYouTubeSeries/blob/main/Customer%20Call%20List.xlsx)
 
 ---
 
