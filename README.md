@@ -3,6 +3,9 @@
 ## 📌 Project Overview
 This repository contains a comprehensive data cleaning project using **Python** and the **Pandas** library. The raw dataset (`Customer Call List.xlsx`) contained messy text formatting, duplicate rows, irregular phone numbers, unformatted addresses, and unnecessary columns. This project systematically cleans and standardizes the dataset into a ready-to-use format for business communication.
 
+### Raw Datasets
+[Raw_Dataset](data/Customer Call List.xlsx)
+
 ---
 
 ## 🛠️ Repository File Structure
@@ -30,21 +33,21 @@ import pandas as pd
 df = pd.read_excel("Customer Call List.xlsx")
 ```
 ### Output Snapshots
-[Loading_The_Dataset]()
+[Loading_The_Dataset](screenshots/Loading_The_Dataset.png)
 
 2. **Removing Duplicate Rows:** Identified and dropped duplicate customer records to maintain data integrity.
 ```Python
 df = df.drop_duplicates()
 ```
 ### Output Snapshots
-[Loading_The_Dataset]()
+[Removing_Duplicate_Rows](screenshots/Removing_Duplicate_Rows.png)
 
 3. **Dropping Unnecessary Columns:** Removed columns that did not add analytical value to the customer contact process (e.g., Not_Useful_Column).
 ```Python
 df = df.drop(columns="Not_Useful_Column")
 ```
 ### Output Snapshots
-[Loading_The_Dataset]()
+[Dropping_Unnecessary_Columns](screenshots/Dropping_Unnecessary_Columns.png)
 
 4. **Cleaning String Columns:** Cleaned messy characters, symbols (..., /, _), and extra whitespaces from columns like Last_Name using .str.strip().
 -Standardized categorical values in Paying Customer and Do_Not_Contact columns (converting "Yes/No" variations uniformly to "Y/N").
@@ -55,14 +58,14 @@ df = df.drop(columns="Not_Useful_Column")
 df["Phone_Number"] = df["Phone_Number"].str.replace('[^a-zA-Z0-9]','',regex=True)
 ```
 ### Output Snapshots
-[Loading_The_Dataset]()
+[Standardize_Phone_Number](screenshots/Standardize_Phone_Number.png)
 
 6. **Splitting Address Information:**  Split the combined Address column into distinct fields (Street_Address, State, and Zip_Code) using .str.split().
 ```Python
 df[["Street_Address","State","Zip_Code"]] = df["Address"].str.split(',', n=2, expand=True)
 ```
 ### Output Snapshots
-[Loading_The_Dataset]()
+[Splitting_Address_Information](screenshots/Splitting_Address_Information.png)
 
 7. **Handling Missing Values & Filtering Contact Rules:** Replaced null values with empty strings or handled missing data appropriately.
 -Filtered out customers who opted out of contact (Do_Not_Contact == "Y") or had missing phone numbers.
@@ -72,14 +75,14 @@ for x in df.index:
         df.drop(x, inplace=True)
 ```
 ### Output Snapshots
-[Loading_The_Dataset]()
+[Filtering_Contact_Rules](screenshots/Filtering_Contact_Rules.png)
 
 8. **Resetting DataFrame Index:** Cleaned up the final index sequence to ensure sequential ordering.
 ```Python
 df = df.reset_index(drop=True)
 ```
 ### Output Snapshots
-[Loading_The_Dataset]()
+[Resetting_DataFrame_Index](screenshots/Resetting_DataFrame_Index.pn)
 
 ---
 
