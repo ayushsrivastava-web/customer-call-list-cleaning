@@ -33,7 +33,7 @@ import pandas as pd
 df = pd.read_excel("Customer Call List.xlsx")
 ```
 ### Output Snapshots
-[Loading_The_Dataset](screenshots/Loading_The_Dataset.png)
+![Loading_The_Dataset](./screenshots/Loading_The_Dataset.png)
 
 2. **Removing Duplicate Rows:** Identified and dropped duplicate customer records to maintain data integrity.
 ```Python
